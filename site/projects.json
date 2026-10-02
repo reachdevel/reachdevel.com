@@ -10,7 +10,7 @@
       "id": "muninn",
       "title": "Muninn",
       "slug": "muninn",
-      "tagline": "Self-hosted stealth search and scrape gateway that hands AI agents a clean REST API.",
+      "tagline": "Self-hosted stealth search and scrape gateway that hands AI agents a clean REST API",
       "description": "Muninn is a self-hosted search and data extraction API for a home server. A single persistent, anti-bot-hardened Chromium scrapes Google, Bing, DuckDuckGo and Mojeek behind a FastAPI gateway: a SQLite TTL cache with query hashing, an async FIFO request queue with a 15–30s throttler, and an engine manager that rotates engines round-robin and quarantines blocked ones for 30 minutes up to 12 hours, with state persisted across restarts. A separate /scrape worker tries plain HTTP first and only escalates to an isolated stealth-browser process on a block challenge, backed by SSRF guards, robots.txt checks, per-host rate limits and bounded caching.",
       "category": "AI / Automation",
       "status": "Active",
