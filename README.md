@@ -59,10 +59,7 @@ Two things to know about ordering:
 
 Keep the two aligned: put featured projects at the top of the array.
 
-## Deploying
-
-The Cloudflare Pages project is `reachdevel`, published to the custom domain
-`reachdevel.com`.
+## Deploying manually
 
 ```sh
 wrangler pages deploy site --project-name=reachdevel
@@ -72,17 +69,26 @@ Requires an authenticated Wrangler (`wrangler login`).
 
 ## Continuous deployment
 
-Pushing to `main` deploys automatically via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
-It expects two repository secrets:
+The Cloudflare Pages project is connected to this repository via Cloudflare's Git
+integration. **Pushing to `main` deploys automatically.**
 
-| Secret | Value |
+| Pages setting | Value |
 | --- | --- |
-| `CLOUDFLARE_API_TOKEN` | A Cloudflare API token with **Account → Cloudflare Pages → Edit** (plus **Account → Account Settings → Read** and **User → User Details → Read**, which Wrangler needs to read account details) |
-| `CLOUDFLARE_ACCOUNT_ID` | `68f296214242475f2af0ea7e55a4393d` |
+| Production branch | `main` |
+| Build command | *(none)* |
+| Build output directory | `site` |
+| Root directory | *(none)* |
 
-Create the token at *Cloudflare → My Profile → API Tokens → Create Token → Custom token*.
+There is no build step and no secret to manage — Pages reads the repository directly.
+The output directory **must** stay `site`. With no build command, Pages defaults to
+publishing the *repository root*, which would expose `README.md`, `AGENTS.md`, `LICENSE`
+and `brand/` as public URLs.
 
-If you deploy from your machine instead, the workflow is harmless — it only runs on push.
+Deploying from a machine instead, with an authenticated Wrangler:
+
+```sh
+wrangler pages deploy site --project-name=reachdevel
+```
 
 ## Routing and headers
 
