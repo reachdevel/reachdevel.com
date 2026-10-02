@@ -3,7 +3,7 @@
     "name": "reachdevel.com",
     "email": "reachdevel@gmail.com",
     "github": "https://github.com/reachdevel",
-    "categories": ["macOS App", "AI / Automation", "Developer Tool", "Android TV"]
+    "categories": ["macOS App", "AI / Automation", "Developer Tool", "Android TV", "Web App"]
   },
   "projects": [
     {
@@ -131,6 +131,28 @@
         "The first build compiles OpenSSL 3.x for 3 ABIs (~2.5 min), then it is cached",
         "On Android 10+ grant \"Display over other apps\" so a cast can open the player",
         "Enable protocol tracing with: adb shell setprop debug.omnicast.log 1"
+      ]
+    },
+    {
+      "id": "whatsapp-formatter",
+      "title": "WhatsApp Formatter",
+      "slug": "whatsapp-formatter",
+      "tagline": "Turkish phone numbers into wa.me chat links — one click, no server, no dependencies.",
+      "description": "WhatsApp's wa.me links want a number in full international form: country code, subscriber, no plus sign and no leading trunk zero. A number written the way it is actually written gets rejected. WhatsApp Formatter normalises the shapes Turkish numbers really arrive in — 5551234567, 05551234567, 905551234567 — into +90 form as you type, then hands off to WhatsApp Web or the mobile app. It is one HTML file with inline CSS and JavaScript: no build step, no framework, no dependencies, and installable as a PWA. Everything runs in the browser, so no number you type is transmitted, logged or stored — there is no server at all. Scope is deliberately Turkish only; it does not attempt to format numbers from other countries. WhatsApp is a trademark of WhatsApp LLC. This is an independent tool and is not affiliated with, endorsed by, or sponsored by WhatsApp or Meta.",
+      "category": "Web App",
+      "status": "Active",
+      "techStack": ["HTML", "CSS", "JavaScript", "PWA"],
+      "stars": 0,
+      "githubUrl": "https://github.com/reachdevel/whatsapp-formatter",
+      "demoUrl": "https://wa.reachdevel.com",
+      "featured": false,
+      "createdAt": "2026-01-05",
+      "metrics": "6 kB single file · zero dependencies",
+      "command": "open https://wa.reachdevel.com",
+      "setup": [
+        "open https://wa.reachdevel.com",
+        "",
+        "Or clone and serve it from any static host — there is nothing to build"
       ]
     }
   ]
