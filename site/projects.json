@@ -121,7 +121,7 @@
       "demoUrl": "",
       "featured": false,
       "createdAt": "2026-09-30",
-      "metrics": "v1.0.0 · Android 7.0+ · GPLv3 · internal testing",
+      "metrics": "v1.0.0 · Android 7.0+ · closed source · internal testing",
       "command": "./gradlew assembleDebug",
       "setup": [
         "export JAVA_HOME=$(/usr/libexec/java_home -v 17)",
