@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="630" viewBox="0 0 1280 630">
+  <defs>
+    <radialGradient id="gBlue" gradientUnits="userSpaceOnUse" cx="1180" cy="-40" r="720">
+      <stop offset="0" stop-color="#8FA9D9" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#8FA9D9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gGold" gradientUnits="userSpaceOnUse" cx="60" cy="690" r="620">
+      <stop offset="0" stop-color="#D9B88F" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#D9B88F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1280" height="630" fill="#161412"/>
+  <rect x="0" y="0" width="1280" height="630" fill="url(#gBlue)"/>
+  <rect x="0" y="0" width="1280" height="630" fill="url(#gGold)"/>
+
+  <!-- card corner accent, echoing .card::before -->
+  <path d="M44 118V44H118" fill="none" stroke="#D9B88F" stroke-width="4" opacity=".85"/>
+
+  <!-- the mark, same construction as brand/reachdevel-icon.svg -->
+  <g transform="translate(96,195) scale(6)">
+    <rect x="1" y="1" width="38" height="38" fill="#201D1A" stroke="#D9B88F" stroke-opacity=".5"/>
+    <path d="M10 12 20 21 10 30" fill="none" stroke="#D9B88F" stroke-width="3.2" stroke-linecap="square"/>
+    <path d="M24.2 15.2A8 8 0 0 1 24.2 26.8" fill="none" stroke="#8FA9D9" stroke-width="2.6" stroke-linecap="square"/>
+    <path d="M29 11.2A14 14 0 0 1 29 30.8" fill="none" stroke="#8FA9D9" stroke-width="2.6" stroke-linecap="square" opacity=".5"/>
+  </g>
+
+  <!-- wordmark: one text element so the runs kern naturally against each other -->
+  <text x="404" y="302" font-family="Avenir Next, Avenir, Helvetica Neue, sans-serif" font-size="90" font-weight="700"><tspan fill="#F1EBE2">reach</tspan><tspan fill="#D9B88F">devel</tspan><tspan fill="#A39B8F">.com</tspan></text>
+
+  <text x="406" y="360" font-family="Avenir Next, Avenir, Helvetica Neue, sans-serif" font-size="31" font-weight="500" fill="#A39B8F">Personal software lab and engineering index.</text>
+
+  <text x="406" y="412" font-family="SF Mono, Menlo, monospace" font-size="24" fill="#D9B88F">~/reachdevel $ cat README.md</text>
+</svg>

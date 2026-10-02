@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Cloudflare / wrangler credentials — never commit these.
+# The OAuth token lives outside the repo, but a local token would not.
+.env
+.env.*
+.dev.vars
+.wrangler/
+
+# Node (only used by the deploy tooling, not by the site itself)
+node_modules/
+npm-debug.log*

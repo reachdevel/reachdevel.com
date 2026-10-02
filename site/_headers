@@ -1,0 +1,38 @@
+# Security headers. Cache-Control is left to Pages per-path so the values
+# below are never merged into a conflicting header.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Content is fetched live by app.js, so keep it revalidatable
+/projects.json
+  Cache-Control: public, max-age=300
+
+# Brand icons never change
+/icon.svg
+  Cache-Control: public, max-age=604800, immutable
+
+/icon-256.png
+  Cache-Control: public, max-age=604800, immutable
+
+/icon-1024.png
+  Cache-Control: public, max-age=604800, immutable
+
+/styles.css
+  Cache-Control: public, max-age=3600
+
+/app.js
+  Cache-Control: public, max-age=3600
+
+# reachdevel.com is canonical; keep the other hostnames out of the index
+https://www.reachdevel.com/*
+  X-Robots-Tag: noindex, follow
+
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, follow
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex, follow

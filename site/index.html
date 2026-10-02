@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>reachdevel.com — pet projects, shipped</title>
+<meta name="description" content="Experiments in code, developer tools and small products, shipped under reachdevel.com.">
+<link rel="canonical" href="https://reachdevel.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-256.png" sizes="256x256" type="image/png">
+<link rel="apple-touch-icon" href="icon-256.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-in">
+    <a href="#top" class="brand" aria-label="reachdevel.com home">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="38" height="38" fill="#161412" stroke="#D9B88F" stroke-opacity=".5"/>
+        <path d="M10 12 20 21 10 30" stroke="#D9B88F" stroke-width="3.2" stroke-linecap="square"/>
+        <path d="M24.2 15.2A8 8 0 0 1 24.2 26.8" stroke="#8FA9D9" stroke-width="2.6" stroke-linecap="square"/>
+        <path d="M29 11.2A14 14 0 0 1 29 30.8" stroke="#8FA9D9" stroke-width="2.6" stroke-linecap="square" opacity=".5"/>
+      </svg>
+      <span class="wordmark"><b>reach</b><span>devel.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Primary">
+      <span class="stat mono hide-sm" id="stat"></span>
+      <a class="nav-a hide-sm" id="gh-link" href="#" target="_blank" rel="noopener">github ↗</a>
+      <a class="btn btn-primary" id="feedback-link" href="#">Submit / Feedback</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <svg class="rings" aria-hidden="true" viewBox="0 0 900 900">
+      <g fill="none" stroke="#8FA9D9">
+        <circle cx="450" cy="450" r="60" stroke-opacity=".5"/>
+        <circle cx="450" cy="450" r="130" stroke-opacity=".22"/>
+        <circle cx="450" cy="450" r="210" stroke-opacity=".16"/>
+        <circle cx="450" cy="450" r="300" stroke-opacity=".12"/>
+        <circle cx="450" cy="450" r="400" stroke-opacity=".08"/>
+        <circle class="ring" cx="450" cy="450" r="440" stroke="#D9B88F" stroke-width="2" style="animation-delay:0s"/>
+        <circle class="ring" cx="450" cy="450" r="440" stroke="#D9B88F" stroke-width="2" style="animation-delay:2.3s"/>
+        <circle class="ring" cx="450" cy="450" r="440" stroke="#D9B88F" stroke-width="2" style="animation-delay:4.6s"/>
+      </g>
+      <path d="M425 415 460 450 425 485" fill="none" stroke="#D9B88F" stroke-width="7" stroke-linecap="square"/>
+    </svg>
+    <div class="wrap hero-in">
+      <span class="mono hero-cmd rise" style="animation-delay:.05s">~/reachdevel $ cat README.md</span>
+      <h1 class="rise" style="animation-delay:.2s">Building &amp; shipping <em>focused software</em> to the world.</h1>
+      <p class="hero-sub rise" style="animation-delay:.4s">Personal software lab and engineering index by Levent Kurt. Experiments in code, developer tools, and small products built in the open.</p>
+      <div class="controls rise" style="animation-delay:.55s">
+        <div class="sbox">
+          <label for="q" class="sr-only">Search projects</label>
+          <span class="mono prompt">$</span>
+          <span class="mono grep">grep -i</span>
+          <input id="q" class="search" type="search" placeholder="name, tag or tech" autocomplete="off">
+          <span class="caret" aria-hidden="true"></span>
+        </div>
+        <div role="tablist" aria-label="Filter by category" class="tabs" id="tabs"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap projects" aria-labelledby="idx">
+    <div class="projects-head">
+      <h2 id="idx">Index</h2>
+      <span class="mono count" id="count" aria-live="polite"></span>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>
+      <span class="empty-title">No matching packages.</span>
+      <span class="mono dim">E: unable to locate package</span>
+      <button class="btn" id="reset" type="button">reset filters</button>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-in">
+    <div class="cta">
+      <span class="mono cta-cmd">$ ./contact --open-to collaboration</span>
+      <h2>Have an idea? <em>Let's build together.</em></h2>
+      <div><a class="btn btn-primary" id="cta-mail" href="#"></a></div>
+    </div>
+    <div class="footer-bar">
+      <div class="credits">
+        <span id="copy-line"></span>
+        <span class="mono">plain HTML, CSS &amp; JS · set in Hanken Grotesk &amp; Geist Mono · dune palette</span>
+      </div>
+      <div class="footer-links">
+        <a class="nav-a" id="gh-link-2" href="#" target="_blank" rel="noopener">github ↗</a>
+        <a class="nav-a" id="mail-link-2" href="#">email</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-back" id="modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" id="modal-box"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
