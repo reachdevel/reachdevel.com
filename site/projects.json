@@ -7,6 +7,31 @@
   },
   "projects": [
     {
+      "id": "mimeforge",
+      "title": "MimeForge",
+      "slug": "mimeforge",
+      "tagline": "File-type icons as SVG, generated from any file extension — one tiny, recolorable icon per type, at any size.",
+      "description": "MimeForge turns a file extension into a small, crisp SVG icon: a page with a type emblem and a colored label such as PDF, DOCX or ROM. It knows about 1,365 extensions, mapped to 24 icon categories from mime-db plus curated mappings, and anything unknown gets a generic icon instead of a missing one. Each icon is about 1.3 KB of plain shapes with no scripts and no fonts to ship — the label glyphs are converted to paths — and the output is deterministic, so the same input always yields the same bytes. Size is chosen in your HTML, not baked into a file, so one SVG serves 16 px lists and 1024 px previews alike. Colors, the label font and the icon bodies are all replaceable from the command line, a JSON config or the library API, and optional PNG export covers systems that still need raster. A test-run command renders every icon type at 16, 48 and 128 px on one HTML page. Written in TypeScript for Node.js 20+, covered by 122 tests, MIT licensed and published to npm with provenance. It starts from SVG instead of a fixed set of PNG sizes.",
+      "category": "Developer Tool",
+      "status": "Active",
+      "techStack": ["TypeScript", "Node.js", "SVG", "mime-db"],
+      "stars": 0,
+      "githubUrl": "https://github.com/reachdevel/mimeforge",
+      "demoUrl": "",
+      "featured": true,
+      "createdAt": "2026-10-07",
+      "metrics": "24 icon types · 1,365 extensions · ~1.3 KB per icon",
+      "command": "npx mimeforge pdf docx webm -o icons",
+      "setup": [
+        "npx mimeforge pdf docx webm -o icons",
+        "npx mimeforge --test-run",
+        "npm i mimeforge",
+        "",
+        "The --test-run page shows every icon type at 16, 48 and 128 px",
+        "Change colors, the label font or the icon bodies with --color, --font and --body"
+      ]
+    },
+    {
       "id": "muninn",
       "title": "Muninn",
       "slug": "muninn",
@@ -45,7 +70,7 @@
       "stars": 1,
       "githubUrl": "https://github.com/reachdevel/Lidless",
       "demoUrl": "",
-      "featured": true,
+      "featured": false,
       "createdAt": "2026-09-26",
       "metrics": "v1.0.0 DMG · 18 Swift modules",
       "command": "curl -fLO https://github.com/reachdevel/Lidless/releases/download/v1.0.0/Lidless-1.0.0.dmg",
