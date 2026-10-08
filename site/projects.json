@@ -59,6 +59,36 @@
       ]
     },
     {
+      "id": "trblocked",
+      "title": "trblocked",
+      "slug": "trblocked",
+      "tagline": "Finds out why a site won't open in Turkey: DNS, IP, SNI or HTTP blocking, throttling, or the site simply being down.",
+      "description": "trblocked answers a question a browser cannot: why a site does not open in Turkey. It checks each layer on its own and compares it against a control, because a plain timeout proves nothing. DNS answers from the ISP's resolvers are compared with a trusted DNS-over-HTTPS answer and with known block-page addresses. TCP is probed on ports 443 and 80, and an IP block is reported only when every port is dead. TLS handshakes with the real server name are compared with a neutral one on the same IP to expose SNI filtering, and plain HTTP is compared with a neutral Host header, which tells a Host-based drop or an injected block page from a dead server. Throttling is measured on request by comparing download speed under the real and a neutral server name, and suspected IP and Host blocks are confirmed from outside Turkey. When a block page shows a court decision, the text is read and printed. Many sites are checked in parallel with a live progress display that disappears when it finishes, and the output is Turkish, English or JSON. Written in TypeScript for Node.js 20.19+ with no runtime dependencies, covered by 101 tests, MIT licensed and published to npm with provenance. It has so far been verified on a single Turkish ISP home line, and the README lists exactly what is and is not verified.",
+      "category": "Developer Tool",
+      "status": "Active",
+      "techStack": [
+        "TypeScript",
+        "Node.js",
+        "TLS",
+        "DNS"
+      ],
+      "stars": 0,
+      "githubUrl": "https://github.com/reachdevel/trblocked",
+      "demoUrl": "",
+      "featured": false,
+      "createdAt": "2026-10-08",
+      "metrics": "v1.0.1 · 101 tests · zero dependencies",
+      "command": "npx trblocked pastebin.com",
+      "setup": [
+        "npx trblocked pastebin.com",
+        "npm i -g trblocked",
+        "trblocked -f list.txt --json",
+        "",
+        "Needs Node.js 20.19+ on macOS or Linux",
+        "Add --throttle to also measure bandwidth throttling; trblocked config sets the language and options"
+      ]
+    },
+    {
       "id": "lidless",
       "title": "Lidless",
       "slug": "lidless",
