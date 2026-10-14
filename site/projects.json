@@ -7,28 +7,29 @@
   },
   "projects": [
     {
-      "id": "mimeforge",
-      "title": "MimeForge",
-      "slug": "mimeforge",
-      "tagline": "File-type icons as SVG, generated from any file extension — one tiny, recolorable icon per type, at any size.",
-      "description": "MimeForge turns a file extension into a small, crisp SVG icon: a page with a type emblem and a colored label such as PDF, DOCX or ROM. It knows about 1,365 extensions, mapped to 24 icon categories from mime-db plus curated mappings, and anything unknown gets a generic icon instead of a missing one. Each icon is about 1.3 KB of plain shapes with no scripts and no fonts to ship — the label glyphs are converted to paths — and the output is deterministic, so the same input always yields the same bytes. Size is chosen in your HTML, not baked into a file, so one SVG serves 16 px lists and 1024 px previews alike. Colors, the label font and the icon bodies are all replaceable from the command line, a JSON config or the library API, and optional PNG export covers systems that still need raster. A test-run command renders every icon type at 16, 48 and 128 px on one HTML page. Written in TypeScript for Node.js 20+, covered by 122 tests, MIT licensed and published to npm with provenance. It starts from SVG instead of a fixed set of PNG sizes.",
+      "id": "neotools",
+      "title": "neotools",
+      "slug": "neotools",
+      "tagline": "macOS-native replacements for du, df, top, find, lsof and rm — iCloud-aware, APFS-aware and script-safe.",
+      "description": "neotools is a family of twelve macOS-native commands, written in Swift, that replace the everyday Unix tools macOS has outgrown. neodu counts the files evicted to iCloud the way Finder does, neodf understands APFS containers, purgeable space, local snapshots and the Trash, and neotop is an Activity Monitor for the terminal: applications ranked by watts, with performance and efficiency cores, GPU, memory, network and disk. neofree, neotree, neops and neonet bring the Linux habits (free, tree, ps aux, netstat -tulpn) to the Mac, while neofind, neolsof and neotrash add Finder tags, deleted-but-open files and an undo to find, lsof and rm. neomedia and neodocs inspect, convert and shrink photos, videos, PDF, Word, Excel, CSV and Parquet files with a PDF engine and Word and Excel readers of their own, and nothing else to install. Piped, every command prints what the original prints, with the same exit codes; 520 tests compare the output with the real commands. neo-setup is an optional, removable step that makes du run neodu, df run neodf and so on in interactive shells. Installed with Homebrew for Apple silicon and Intel, MIT licensed. Finder, iCloud, APFS, Activity Monitor, macOS and Apple silicon are trademarks or terms of Apple Inc., used only to describe compatibility. Not affiliated with or endorsed by Apple.",
       "category": "Developer Tool",
-      "status": "Active",
-      "techStack": ["TypeScript", "Node.js", "SVG", "mime-db"],
+      "status": "Beta",
+      "techStack": ["Swift", "macOS APIs", "Homebrew"],
       "stars": 0,
-      "githubUrl": "https://github.com/reachdevel/mimeforge",
+      "githubUrl": "https://github.com/reachdevel/neotools",
       "demoUrl": "",
       "featured": true,
-      "createdAt": "2026-10-07",
-      "metrics": "24 icon types · 1,365 extensions · ~1.3 KB per icon",
-      "command": "npx mimeforge pdf docx webm -o icons",
+      "createdAt": "2026-10-14",
+      "metrics": "12 commands · 520 tests · up to 5.2x faster than find",
+      "command": "brew install reachdevel/tap/neotools",
       "setup": [
-        "npx mimeforge pdf docx webm -o icons",
-        "npx mimeforge --test-run",
-        "npm i mimeforge",
+        "brew install reachdevel/tap/neotools",
+        "neodf",
+        "neotop --once",
+        "neodu -sh ~/Documents",
         "",
-        "The --test-run page shows every icon type at 16, 48 and 128 px",
-        "Change colors, the label font or the icon bodies with --color, --font and --body"
+        "Piped, every command prints what the original prints; --plain gives the old behaviour",
+        "neo-setup makes du run neodu, df run neodf and so on; neo-setup --uninstall takes it out again"
       ]
     },
     {
@@ -56,6 +57,31 @@
         "",
         "Linux only needs sudo for the browser-deps step; macOS is a no-op",
         "Bind 127.0.0.1 — Muninn ships without authentication"
+      ]
+    },
+    {
+      "id": "mimeforge",
+      "title": "MimeForge",
+      "slug": "mimeforge",
+      "tagline": "File-type icons as SVG, generated from any file extension — one tiny, recolorable icon per type, at any size.",
+      "description": "MimeForge turns a file extension into a small, crisp SVG icon: a page with a type emblem and a colored label such as PDF, DOCX or ROM. It knows about 1,365 extensions, mapped to 24 icon categories from mime-db plus curated mappings, and anything unknown gets a generic icon instead of a missing one. Each icon is about 1.3 KB of plain shapes with no scripts and no fonts to ship — the label glyphs are converted to paths — and the output is deterministic, so the same input always yields the same bytes. Size is chosen in your HTML, not baked into a file, so one SVG serves 16 px lists and 1024 px previews alike. Colors, the label font and the icon bodies are all replaceable from the command line, a JSON config or the library API, and optional PNG export covers systems that still need raster. A test-run command renders every icon type at 16, 48 and 128 px on one HTML page. Written in TypeScript for Node.js 20+, covered by 122 tests, MIT licensed and published to npm with provenance. It starts from SVG instead of a fixed set of PNG sizes.",
+      "category": "Developer Tool",
+      "status": "Active",
+      "techStack": ["TypeScript", "Node.js", "SVG", "mime-db"],
+      "stars": 0,
+      "githubUrl": "https://github.com/reachdevel/mimeforge",
+      "demoUrl": "",
+      "featured": false,
+      "createdAt": "2026-10-07",
+      "metrics": "24 icon types · 1,365 extensions · ~1.3 KB per icon",
+      "command": "npx mimeforge pdf docx webm -o icons",
+      "setup": [
+        "npx mimeforge pdf docx webm -o icons",
+        "npx mimeforge --test-run",
+        "npm i mimeforge",
+        "",
+        "The --test-run page shows every icon type at 16, 48 and 128 px",
+        "Change colors, the label font or the icon bodies with --color, --font and --body"
       ]
     },
     {
