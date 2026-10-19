@@ -89,7 +89,7 @@
       "title": "claude-git-autocommit",
       "slug": "claude-git-autocommit",
       "tagline": "Commits your working tree when a Claude Code turn ends, with Conventional Commit messages derived from the staged diff.",
-      "description": "Auto-commit for Claude Code, implemented as a Stop hook: when a turn ends — Stop or StopFailure — the hook commits whatever is sitting in the working directory and always exits 0, so a failed commit is logged instead of blocking the turn. Messages come from the staged diff rather than the model's last sentence: git status --porcelain decides whether there is anything to do, git add . stages everything so new files are included, and git diff --cached --name-status with --numstat picks the Conventional Commit type and a representative file. Type inference is structural — test, docs, chore, feat or fix — subjects are capped at 72 characters, and no model call is involved. It initializes a repository when none exists, uses a bot identity only when user.email is unset, and commits with --no-verify so pre-commit hooks never interrupt a turn. An install script writes the hook into user settings, project settings or a plugin bundle, with --dry-run to preview the change. Written in TypeScript for Node.js, MIT licensed and published to npm. Claude Code is a product of Anthropic, used here only to describe compatibility. Not affiliated with or endorsed by Anthropic.",
+      "description": "Auto-commit for Claude Code, implemented as a Stop hook: when a turn ends — Stop or StopFailure — the hook commits whatever is sitting in the working directory and always exits 0, so a failed commit is logged instead of blocking the turn. Messages come from the staged diff rather than the model's last sentence: git status --porcelain decides whether there is anything to do, git add . stages everything so new files are included, and git diff --cached --name-status with --numstat picks the Conventional Commit type and a representative file. Type inference is structural — test, docs, chore, feat or fix — subjects are capped at 72 characters, and no model call is involved. It uses a bot identity only when user.email is unset and commits with --no-verify so pre-commit hooks never interrupt a turn. An npx installer copies the hook into .claude/hooks and registers Stop and StopFailure in user or project settings, with --dry-run to preview the change. Written in TypeScript for Node.js, MIT licensed and published to npm. Claude Code is a product of Anthropic, used here only to describe compatibility. Not affiliated with or endorsed by Anthropic.",
       "category": "Developer Tool",
       "status": "Active",
       "techStack": ["TypeScript", "Node.js", "Claude Code"],
@@ -98,15 +98,14 @@
       "demoUrl": "",
       "featured": false,
       "createdAt": "2026-10-16",
-      "metrics": "1.0.0 on npm · Stop hook · no model calls",
-      "command": "node scripts/install.js --user",
+      "metrics": "1.0.1 on npm · Stop hook · no model calls",
+      "command": "npx claude-git-autocommit --user",
       "setup": [
-        "git clone https://github.com/reachdevel/claude-git-autocommit",
-        "cd claude-git-autocommit",
-        "node scripts/install.js --user",
+        "npx claude-git-autocommit --user",
+        "npx claude-git-autocommit --project",
         "",
-        "Use --project for a single repo's .claude/settings.json; --dry-run previews the change",
-        "Requires Node.js, git and Claude Code with hooks enabled"
+        "The hook is copied to .claude/hooks/claude-git-autocommit.mjs; --dry-run previews the change",
+        "Requires Node.js 18+, git and Claude Code with hooks enabled"
       ]
     },
     {
