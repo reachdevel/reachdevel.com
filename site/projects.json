@@ -10,8 +10,8 @@
       "id": "neotools",
       "title": "neotools",
       "slug": "neotools",
-      "tagline": "macOS-native replacements for du, df, top, find, lsof and rm — iCloud-aware, APFS-aware and script-safe.",
-      "description": "neotools is a family of twelve macOS-native commands, written in Swift, that replace the everyday Unix tools macOS has outgrown. neodu counts the files evicted to iCloud the way Finder does, neodf understands APFS containers, purgeable space, local snapshots and the Trash, and neotop is an Activity Monitor for the terminal: applications ranked by watts, with performance and efficiency cores, GPU, memory, network and disk. neofree, neotree, neops and neonet bring the Linux habits (free, tree, ps aux, netstat -tulpn) to the Mac, while neofind, neolsof and neotrash add Finder tags, deleted-but-open files and an undo to find, lsof and rm. neomedia and neodocs inspect, convert and shrink photos, videos, PDF, Word, Excel, CSV and Parquet files with a PDF engine and Word and Excel readers of their own, and nothing else to install. Piped, every command prints what the original prints, with the same exit codes; 520 tests compare the output with the real commands. neo-setup is an optional, removable step that makes du run neodu, df run neodf and so on in interactive shells. Installed with Homebrew for Apple silicon and Intel, MIT licensed. Finder, iCloud, APFS, Activity Monitor, macOS and Apple silicon are trademarks or terms of Apple Inc., used only to describe compatibility. Not affiliated with or endorsed by Apple.",
+      "tagline": "macOS-native replacements for du, df, top, find, lsof and rm — plus a full-screen disk cleaner — iCloud-aware, APFS-aware and script-safe.",
+      "description": "neotools is a family of thirteen macOS-native commands, written in Swift, that replace the everyday Unix tools macOS has outgrown. neodu counts the files evicted to iCloud the way Finder does, neodf understands APFS containers, purgeable space, local snapshots and the Trash, and neotop is an Activity Monitor for the terminal: applications ranked by watts, with performance and efficiency cores, GPU, memory, network and disk. neosweep is a full-screen disk cleaner that says what deleting something really frees — clones and snapshots counted right — finds caches, downloads, big files, iCloud items, applications with the data they left behind and Homebrew leftovers, deletes only what you choose, and gives scriptable reports with --scan and --json. neofree, neotree, neops and neonet bring the Linux habits (free, tree, ps aux, netstat -tulpn) to the Mac, while neofind, neolsof and neotrash add Finder tags, deleted-but-open files and an undo to find, lsof and rm. neomedia and neodocs inspect, convert and shrink photos, videos, PDF, Word, Excel, CSV and Parquet files with a PDF engine and Word and Excel readers of their own, and nothing else to install. Piped, every command prints what the original prints, with the same exit codes; 690 tests compare the output with the real commands. neo-setup is an optional, removable step that makes du run neodu, df run neodf and so on in interactive shells. Installed with Homebrew for Apple silicon and Intel, MIT licensed. Finder, iCloud, APFS, Activity Monitor, macOS and Apple silicon are trademarks or terms of Apple Inc., used only to describe compatibility. Not affiliated with or endorsed by Apple.",
       "category": "Developer Tool",
       "status": "Beta",
       "techStack": ["Swift", "macOS APIs", "Homebrew"],
@@ -20,14 +20,16 @@
       "demoUrl": "",
       "featured": true,
       "createdAt": "2026-10-14",
-      "metrics": "12 commands · 520 tests · up to 5.2x faster than find",
+      "metrics": "13 commands · 690 tests · up to 5.2x faster than find",
       "command": "brew install reachdevel/tap/neotools",
       "setup": [
         "brew install reachdevel/tap/neotools",
+        "neosweep",
         "neodf",
         "neotop --once",
         "neodu -sh ~/Documents",
         "",
+        "neosweep: what deleting really frees, plus app and Homebrew leftovers; --scan and --json for scripts",
         "Piped, every command prints what the original prints; --plain gives the old behaviour",
         "neo-setup makes du run neodu, df run neodf and so on; neo-setup --uninstall takes it out again"
       ]
