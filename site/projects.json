@@ -60,6 +60,56 @@
       ]
     },
     {
+      "id": "opencode-git-autocommit",
+      "title": "opencode-git-autocommit",
+      "slug": "opencode-git-autocommit",
+      "tagline": "Commits your working tree when an OpenCode v2 session finishes, with Conventional Commit messages derived from the staged diff.",
+      "description": "An OpenCode plugin that commits the working tree whenever a session run reaches a terminal state — succeeded, failed or interrupted. It checks git status --porcelain, does nothing when the tree is clean, and runs git init when the directory is not a repository yet. Everything is staged with git add . so brand-new files are included, and the commit subject comes from the staged diff itself: git diff --cached --name-status and --numstat pick the Conventional Commit type and the files worth naming. Type inference is structural — test, docs, chore, feat or fix — and messages describe what changed rather than why, which makes them deterministic and free. Commits fall back to a bot identity only when the machine has no user.email, run with --no-verify, and are serialized per working directory so concurrent sessions cannot collide; subagent sessions are skipped so only the parent change set is committed. Written in TypeScript against the OpenCode v2 plugin API, MIT licensed and published to npm with provenance. OpenCode is a third-party project, used here only to describe compatibility. Not affiliated with or endorsed by it.",
+      "category": "Developer Tool",
+      "status": "Active",
+      "techStack": ["TypeScript", "Node.js", "OpenCode"],
+      "stars": 1,
+      "githubUrl": "https://github.com/reachdevel/opencode-git-autocommit",
+      "demoUrl": "",
+      "featured": false,
+      "createdAt": "2026-04-17",
+      "metrics": "3.0.1 on npm · OpenCode v2 only",
+      "command": "opencode plugin add opencode-git-autocommit@latest",
+      "setup": [
+        "opencode plugin add opencode-git-autocommit@latest",
+        "",
+        "Or add it to opencode.json:",
+        "{ \"plugins\": [\"opencode-git-autocommit@latest\"] }",
+        "",
+        "Requires OpenCode v2 (@opencode/plugin v2)"
+      ]
+    },
+    {
+      "id": "claude-git-autocommit",
+      "title": "claude-git-autocommit",
+      "slug": "claude-git-autocommit",
+      "tagline": "Commits your working tree when a Claude Code turn ends, with Conventional Commit messages derived from the staged diff.",
+      "description": "Auto-commit for Claude Code, implemented as a Stop hook: when a turn ends — Stop or StopFailure — the hook commits whatever is sitting in the working directory and always exits 0, so a failed commit is logged instead of blocking the turn. Messages come from the staged diff rather than the model's last sentence: git status --porcelain decides whether there is anything to do, git add . stages everything so new files are included, and git diff --cached --name-status with --numstat picks the Conventional Commit type and a representative file. Type inference is structural — test, docs, chore, feat or fix — subjects are capped at 72 characters, and no model call is involved. It initializes a repository when none exists, uses a bot identity only when user.email is unset, and commits with --no-verify so pre-commit hooks never interrupt a turn. An install script writes the hook into user settings, project settings or a plugin bundle, with --dry-run to preview the change. Written in TypeScript for Node.js, MIT licensed and published to npm. Claude Code is a product of Anthropic, used here only to describe compatibility. Not affiliated with or endorsed by Anthropic.",
+      "category": "Developer Tool",
+      "status": "Active",
+      "techStack": ["TypeScript", "Node.js", "Claude Code"],
+      "stars": 0,
+      "githubUrl": "https://github.com/reachdevel/claude-git-autocommit",
+      "demoUrl": "",
+      "featured": false,
+      "createdAt": "2026-10-16",
+      "metrics": "1.0.0 on npm · Stop hook · no model calls",
+      "command": "node scripts/install.js --user",
+      "setup": [
+        "git clone https://github.com/reachdevel/claude-git-autocommit",
+        "cd claude-git-autocommit",
+        "node scripts/install.js --user",
+        "",
+        "Use --project for a single repo's .claude/settings.json; --dry-run previews the change",
+        "Requires Node.js, git and Claude Code with hooks enabled"
+      ]
+    },
+    {
       "id": "mimeforge",
       "title": "MimeForge",
       "slug": "mimeforge",
@@ -161,31 +211,6 @@
         "",
         "Grant both Accessibility and Input Monitoring — without the latter CMD+Q is blocked silently",
         "If macOS shows \"Not Opened\" with no Open Anyway, run the xattr command above"
-      ]
-    },
-    {
-      "id": "opencode-git-commit",
-      "title": "opencode-git-commit",
-      "slug": "opencode-git-commit",
-      "tagline": "Commits your working tree automatically when the OpenCode session goes idle.",
-      "description": "An OpenCode plugin that watches for the session.idle event and commits whatever is sitting in the working directory. It pulls the first line of your last assistant reply, sanitizes it, and uses it as the commit message so history reads like real work instead of a pile of snapshots; prefixes follow the Conventional Commits convention, and it runs git init for you when there is no repo yet. Written against the OpenCode v1.x plugin API and left unmaintained since v2 reshaped that surface — keep it pinned to v1.x, or port it.",
-      "category": "Developer Tool",
-      "status": "Archived",
-      "techStack": ["TypeScript", "Node.js", "OpenCode"],
-      "stars": 1,
-      "githubUrl": "https://github.com/reachdevel/opencode-git-commit",
-      "demoUrl": "",
-      "featured": false,
-      "createdAt": "2026-04-17",
-      "metrics": "1.0.0 on npm · OpenCode v1.x only",
-      "command": "opencode plugin \"@levent-kurt/git-autocommit@latest\"",
-      "setup": [
-        "opencode plugin \"@levent-kurt/git-autocommit@latest\"",
-        "",
-        "Or add it to .opencode/opencode.json:",
-        "{ \"plugin\": [\"@levent-kurt/git-autocommit@latest\"] }",
-        "",
-        "Targets OpenCode v1.x — the v2 plugin API is not compatible"
       ]
     },
     {
