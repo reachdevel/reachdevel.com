@@ -15,6 +15,12 @@
   function safeUrl(u) { return /^https?:\/\//i.test(u || '') ? u : ''; }
   function statusClass(s) { return 'st-' + String(s || '').toLowerCase(); }
   /* A project without a public repo must not render a dead link. */
+  function linkButtons(p) {
+    var demo = safeUrl(p.demoUrl), get = safeUrl(p.getUrl), out = '';
+    if (get) out += '<a class="btn btn-primary" href="' + esc(get) + '" target="_blank" rel="noopener">' + esc(p.getLabel) + ' ↗</a>';
+    if (demo) out += '<a class="btn btn-primary" href="' + esc(demo) + '" target="_blank" rel="noopener">Live demo ↗</a>';
+    return out || '<span class="btn btn-off" aria-disabled="true">No demo yet</span>';
+  }
   function ghButton(p, ariaLabel) {
     var url = safeUrl(p.githubUrl);
     return url
@@ -51,8 +57,10 @@
       return [p.title, p.tagline, p.description, p.category, p.status, (p.techStack || []).join(' ')]
         .join(' ').toLowerCase().indexOf(q) !== -1;
     });
-    return list.filter(function (p) { return p.featured; })
-      .concat(list.filter(function (p) { return !p.featured; }));
+    var archived = function (p) { return p.status === 'Archived'; };
+    return list.filter(function (p) { return p.featured && !archived(p); })
+      .concat(list.filter(function (p) { return !p.featured && !archived(p); }))
+      .concat(list.filter(archived));
   }
 
   /* ---------- render ---------- */
@@ -82,7 +90,6 @@
 
   function cardHTML(p, i) {
     var n = state.projects.indexOf(p) + 1;
-    var demo = safeUrl(p.demoUrl);
     return '<article class="card' + (p.featured ? ' wide' : '') + '" data-id="' + esc(p.id) + '" style="animation-delay:' + (120 + i * 110) + 'ms">' +
       '<div class="card-top"><span class="pkg">PKG-' + String(n).padStart(2, '0') + ' · ' + esc(p.category) + '</span>' +
       '<span class="stamp ' + statusClass(p.status) + '">' + esc(p.status) + '</span></div>' +
@@ -91,8 +98,7 @@
       '<div class="cmd"><span class="p">$</span><code>' + esc(p.command) + '</code>' +
       '<button type="button" data-copy="' + esc(p.command) + '" aria-label="Copy command for ' + esc(p.title) + '">copy</button></div>' +
       '<div class="card-foot"><span class="stars">★ ' + esc(p.stars) + '</span><div class="actions">' +
-      (demo ? '<a class="btn btn-primary" href="' + esc(demo) + '" target="_blank" rel="noopener">' + esc(p.demoLabel || 'Live demo') + ' ↗</a>'
-            : '<span class="btn btn-off" aria-disabled="true">No demo yet</span>') +
+      linkButtons(p) +
       ghButton(p) +
       '<button type="button" class="btn" data-open="' + esc(p.id) + '" aria-label="Open details for ' + esc(p.title) + '">Details →</button>' +
       '</div></div></article>';
@@ -111,7 +117,6 @@
     var p = state.projects.filter(function (x) { return x.id === id; })[0];
     if (!p) return;
     state.lastFocus = trigger || document.activeElement;
-    var demo = safeUrl(p.demoUrl);
     $('#modal-box').innerHTML =
       '<div class="m-bar"><span>REACHDEVEL(7)</span><span class="hide-sm">PROJECT MANUAL</span><span>' + esc(p.slug || p.id) + '(1)</span>' +
       '<button type="button" class="m-x" id="m-close" aria-label="Close details">×</button></div>' +
@@ -126,7 +131,7 @@
       '<section class="m-sec"><h3>DEPENDS</h3><div class="tags ind">' + (p.techStack || []).map(function (t) { return '<span class="tag">' + esc(t.toLowerCase()) + '</span>'; }).join('') + '</div></section>' +
       '<section class="m-sec"><h3>STATS</h3><dl><dt>metrics</dt><dd style="color:var(--primary)">' + esc(p.metrics) + '</dd><dt>stars</dt><dd>★ ' + esc(p.stars) + '</dd><dt>created</dt><dd>' + esc(p.createdAt) + '</dd></dl></section>' +
       '<section class="m-sec"><h3>SEE ALSO</h3><div class="m-links">' +
-      (demo ? '<a class="btn btn-primary" href="' + esc(demo) + '" target="_blank" rel="noopener">' + esc(p.demoLabel || 'Live demo') + ' ↗</a>' : '<span class="btn btn-off" aria-disabled="true">No demo yet</span>') +
+      linkButtons(p) +
       ghButton(p) +
       '<a class="btn" href="' + esc(mailto('About ' + p.title)) + '">Ask about this project</a>' +
       '</div></section></div>';

@@ -40,7 +40,9 @@ touch HTML or CSS to add, reorder, or retire a project.
       "techStack": ["Python", "FastAPI"],
       "stars":    0,
       "githubUrl": "https://github.com/reachdevel/Muninn", // "" renders a disabled chip
-      "demoUrl":   "",                  // "" renders "No demo yet"
+      "demoUrl":   "",                  // a real live demo only; "Live demo" button
+      "getUrl":    "",                  // where to get it (release, store, npm); optional
+      "getLabel":  "Download",          // button text for getUrl
       "featured":  true,                // wide card spanning both grid columns
       "createdAt": "2026-09-26",
       "metrics":  "4 engines · 17 test modules",
