@@ -91,7 +91,7 @@
       '<div class="cmd"><span class="p">$</span><code>' + esc(p.command) + '</code>' +
       '<button type="button" data-copy="' + esc(p.command) + '" aria-label="Copy command for ' + esc(p.title) + '">copy</button></div>' +
       '<div class="card-foot"><span class="stars">★ ' + esc(p.stars) + '</span><div class="actions">' +
-      (demo ? '<a class="btn btn-primary" href="' + esc(demo) + '" target="_blank" rel="noopener">Live demo ↗</a>'
+      (demo ? '<a class="btn btn-primary" href="' + esc(demo) + '" target="_blank" rel="noopener">' + esc(p.demoLabel || 'Live demo') + ' ↗</a>'
             : '<span class="btn btn-off" aria-disabled="true">No demo yet</span>') +
       ghButton(p) +
       '<button type="button" class="btn" data-open="' + esc(p.id) + '" aria-label="Open details for ' + esc(p.title) + '">Details →</button>' +
@@ -126,7 +126,7 @@
       '<section class="m-sec"><h3>DEPENDS</h3><div class="tags ind">' + (p.techStack || []).map(function (t) { return '<span class="tag">' + esc(t.toLowerCase()) + '</span>'; }).join('') + '</div></section>' +
       '<section class="m-sec"><h3>STATS</h3><dl><dt>metrics</dt><dd style="color:var(--primary)">' + esc(p.metrics) + '</dd><dt>stars</dt><dd>★ ' + esc(p.stars) + '</dd><dt>created</dt><dd>' + esc(p.createdAt) + '</dd></dl></section>' +
       '<section class="m-sec"><h3>SEE ALSO</h3><div class="m-links">' +
-      (demo ? '<a class="btn btn-primary" href="' + esc(demo) + '" target="_blank" rel="noopener">Live demo ↗</a>' : '<span class="btn btn-off" aria-disabled="true">No demo yet</span>') +
+      (demo ? '<a class="btn btn-primary" href="' + esc(demo) + '" target="_blank" rel="noopener">' + esc(p.demoLabel || 'Live demo') + ' ↗</a>' : '<span class="btn btn-off" aria-disabled="true">No demo yet</span>') +
       ghButton(p) +
       '<a class="btn" href="' + esc(mailto('About ' + p.title)) + '">Ask about this project</a>' +
       '</div></section></div>';
